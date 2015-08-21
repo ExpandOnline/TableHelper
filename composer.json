@@ -1,8 +1,8 @@
 {
-    "name": "jelmerd/table-helper",
+    "name": "ExpandOnline/TableHelper",
     "type": "cakephp-plugin",
     "description": "TableHelper for CakePHP 2.x",
-    "homepage": "http://github.com/JelmerD/TableHelper",
+    "homepage": "http://github.com/ExpandOnline/TableHelper",
     "license": "MIT",
     "require": {
         "php": ">=5.2.8",
