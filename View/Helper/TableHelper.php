@@ -250,10 +250,22 @@ class TableHelper extends AppHelper
         # if the value is an array, the user could have parsed a content and options key. Gives the user extra control.
         return $this->Html->tag(
             $tag,
-            is_array($value) && array_key_exists(0, $value) ? $value[0] : $value,
+            $this->_cellValue($value),
 			Hash::merge($this->settings['cellOptions'], is_array($value) && array_key_exists(1, $value) ? $value[1] : array())
         );
     }
+
+	/**
+	 * Don't send null to HtmlHelper!
+	 *
+	 * @param $value
+	 *
+	 * @return array|bool
+	 */
+	protected function _cellValue($value) {
+		$val = is_array($value) && array_key_exists(0, $value) ? $value[0] : $value;
+		return is_null($val) ? false : $val;
+	}
 
 	/**
 	 * Get a variable from the cache that could be useful to you
