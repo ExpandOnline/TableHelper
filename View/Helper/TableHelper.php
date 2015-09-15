@@ -210,7 +210,7 @@ class TableHelper extends AppHelper
 		$rowOptions = Hash::merge($this->settings['rowOptions'], $rowOptions);
 		$options = Hash::merge($this->settings['footOptions'], $options);
 
-		return $this->closeBody() . $this->Html->tag('tfoot', $this->__row($columns, $rowOptions), $options);
+		return $this->closeBody() . $this->Html->tag('tfoot', $this->__row($columns, $rowOptions), $options) . PHP_EOL;
     }
 
     /**
@@ -220,7 +220,7 @@ class TableHelper extends AppHelper
      */
     public function end()
     {
-        return $this->closeBody() . '</table>';
+        return $this->closeBody() . '</table>' . PHP_EOL;
     }
 
     /**
@@ -252,7 +252,7 @@ class TableHelper extends AppHelper
             $tag,
             $this->_cellValue($value),
 			Hash::merge($this->settings['cellOptions'], is_array($value) && array_key_exists(1, $value) ? $value[1] : array())
-        );
+        ) . PHP_EOL;
     }
 
 	/**
